@@ -4,12 +4,20 @@
         {
             "src": "backend/index.js",
             "use": "@vercel/node"
+        },
+        {
+            "src": "task-manager/build/**",
+            "use": "@vercel/static"
         }
     ],
     "routes": [
         {
             "src": "/api/(.*)",
             "dest": "backend/index.js"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "task-manager/build/index.html"
         }
     ]
 }
