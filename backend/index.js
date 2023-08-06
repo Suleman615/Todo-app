@@ -20,14 +20,13 @@ app.use('/api/v1', task);
 
 
 // Serve the static files from the React app
-const path = require('path')
-app.use(express.static(path.join(__dirname, '..', 'task-manager', 'build')));
 
-console.log(path.join(__dirname, '..', 'task-manager', 'build'));
-// Handle any other requests by serving the React app
-app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'task-manager', 'build', 'index.html'));
-});
+const root = require('path').join(__dirname, '..', 'task-manager', 'build')
+app.use(express.static(root));
+app.get("*", (req, res) => {
+    res.sendFile('index.html', { root });
+})
+
 
 const PORT = 5000;
 app.listen(PORT, console.log(`listening at http://localhost:${PORT}`))
