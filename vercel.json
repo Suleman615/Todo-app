@@ -17,7 +17,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "task-manager/build/index.html"
+            "dest": "/task-manager/build/index.html"
         }
     ]
 }
