@@ -21,11 +21,23 @@ app.use('/api/v1', task);
 
 // Serve the static files from the React app
 
-const root = require('path').join(__dirname, '..', 'task-manager', 'build')
-app.use(express.static(root));
+// const root = require('path').join(__dirname, '..', 'task-manager', 'build')
+// app.use(express.static(root));
+// app.get("*", (req, res) => {
+//     res.sendFile('index.html', { root });
+// })
+
+
+const path = require("path");
+app.use(express.static(path.join(__dirname, '..', 'task-manager', 'build')));
 app.get("*", (req, res) => {
-    res.sendFile('index.html', { root });
+    res.sendFile(path.join(__dirname, '..', 'task-manager', 'build', 'index.html'), function (err) {
+        if (err) {
+            res.status(500).send(err)
+        }
+    });
 })
+
 
 
 const PORT = 5000;
