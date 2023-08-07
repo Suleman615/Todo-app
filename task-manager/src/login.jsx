@@ -56,8 +56,7 @@ const LogIn = () => {
         try {
             const res = await axios.post('http://localhost:5000/api/v1/login', { email: mail, password });
 
-            console.log('Here is your res: ', res);
-            console.log('Here is your res.data: ', res.data);
+
 
             localStorage.setItem("token", JSON.stringify(res.data.token))
 

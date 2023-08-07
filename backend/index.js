@@ -19,13 +19,6 @@ app.use('/api/v1', user);
 app.use('/api/v1', task);
 
 
-// Serve the static files from the React app
-
-// const root = require('path').join(__dirname, '..', 'task-manager', 'build')
-// app.use(express.static(root));
-// app.get("*", (req, res) => {
-//     res.sendFile('index.html', { root });
-// })
 
 
 const path = require("path");
