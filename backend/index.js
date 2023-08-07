@@ -7,7 +7,13 @@ const app = express()
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.json())
-app.use(cors())
+// app.use(cors())
+app.use(cors({
+    origin: ['https://todo-app-blue-nu-33.vercel.app', 'http://localhost:5000'], // use your actual domain name (or localhost), using * is not recommended
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
+    credentials: true
+}))
 
 connectDatabase();
 

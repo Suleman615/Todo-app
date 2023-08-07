@@ -68,7 +68,6 @@ exports.updateTask = asyncErrorHandler(async (req, res, next) => {
     const { status } = req.body
     const { id } = req.params
 
-    console.log("I am here: ", id, '\n', status);
 
     let output;
     if (id && status) {
