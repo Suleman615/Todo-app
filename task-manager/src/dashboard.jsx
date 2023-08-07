@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import AddNew from "./addnew";
-import { FaEdit } from 'react-icons/fa';
 import axios from "axios";
 
 
@@ -18,15 +17,11 @@ const EditStatus = () => {
 }
 
 const DashBoard = (props) => {
-    const [searchString, setSearchString] = useState('')
     const [newrecord, setNewRecord] = useState(false)
-    const [editStatus, setEditStatus] = useState(false)
     const [enableDashBoard, setEnableDashBoard] = useState(true)
 
     const [dummyData, setDummyData] = useState([])
-    const search = (event) => {
-        setSearchString(event.target.value)
-    }
+
 
     const gotoAddNew = () => {
         setNewRecord(true)
@@ -39,25 +34,11 @@ const DashBoard = (props) => {
         props.setDashBoard(false)
         props.setLogIn(true)
     }
-    const gotoEditStatus = () => {
-        props.setDashBoard(false)
-        setEditStatus(true)
-    }
 
 
 
-    const dummydata = [
-        {
-            name: "Kite Runner ",
-            category: "BooK",
-            status: "pending"
-        },
-        {
-            name: "Kite  ",
-            category: "BooK 2",
-            status: "completed"
-        }
-    ]
+
+
 
 
 
@@ -66,8 +47,6 @@ const DashBoard = (props) => {
         try {
             const res = await axios.get('http://localhost:5000/api/v1/task');
 
-            console.log('Here is your res: ', res);
-            console.log('Here is your res.data: ', res.data);
             setDummyData(res.data.tasks)
 
         } catch (error) {
@@ -83,7 +62,6 @@ const DashBoard = (props) => {
     const changeStatus = async (e, id) => {
         let status = e.target.value;
 
-        console.log(status, '---', id);
         try {
             const res = await axios.put(`http://localhost:5000/api/v1/task/${id}`, { status });
             getTasks();
