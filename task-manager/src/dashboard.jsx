@@ -4,17 +4,7 @@ import axios from "axios";
 
 
 
-const EditStatus = () => {
 
-    return (
-        <>
-            <div className="editstatus">
-
-
-            </div>
-        </>
-    )
-}
 
 const DashBoard = (props) => {
     const [newrecord, setNewRecord] = useState(false)
@@ -117,9 +107,7 @@ const DashBoard = (props) => {
 
             }
 
-            {
-                editStatus && <EditStatus />
-            }
+
 
 
         </>
