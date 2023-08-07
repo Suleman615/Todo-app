@@ -54,7 +54,7 @@ const LogIn = () => {
         e.preventDefault();
 
         try {
-            const res = await axios.post('https://todo-app-blue-nu-33.vercel.app/api/v1/login', { email: mail, password });
+            const res = await axios.post('/api/v1/login', { email: mail, password });
 
 
 
