@@ -52,19 +52,18 @@ const LogIn = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-setDashBoard(true)
-setLogIn(false)
-        // try {
-        //     const res = await axios.post('/api/v1/login', { email: mail, password });
+
+        try {
+            const res = await axios.post('/api/v1/login', { email: mail, password });
 
 
 
-        //     localStorage.setItem("token", JSON.stringify(res.data.token))
+            localStorage.setItem("token", JSON.stringify(res.data.token))
 
-        //     gotoDashBoard();
-        // } catch (error) {
-        //     console.log("Error while login: ", error);
-        // }
+            gotoDashBoard();
+        } catch (error) {
+            console.log("Error while login: ", error);
+        }
     }
     const gotoDashBoard = () => {
         setSignUp(false)
