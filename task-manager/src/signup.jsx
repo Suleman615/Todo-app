@@ -58,7 +58,7 @@ const SignUp = (props) => {
         }
 
         try {
-            const res = await axios.post('https://todo-app-blue-nu-33.vercel.app/api/v1/register', data);
+            const res = await axios.post('https://schedule-my-task.vercel.app/api/v1/register', data);
 
             gotoLogIn()
 

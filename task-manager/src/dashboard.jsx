@@ -35,7 +35,7 @@ const DashBoard = (props) => {
     const getTasks = async () => {
 
         try {
-            const res = await axios.get('https://todo-app-blue-nu-33.vercel.app/api/v1/task');
+            const res = await axios.get('https://schedule-my-task.vercel.app/api/v1/task');
 
             setDummyData(res.data.tasks)
 
@@ -53,7 +53,7 @@ const DashBoard = (props) => {
         let status = e.target.value;
 
         try {
-            const res = await axios.put(`https://todo-app-blue-nu-33.vercel.app/api/v1/task/${id}`, { status });
+            const res = await axios.put(`https://schedule-my-task.vercel.app/api/v1/task/${id}`, { status });
             getTasks();
         } catch (error) {
             console.log("Error while updating task: ", error);

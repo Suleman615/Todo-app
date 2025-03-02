@@ -28,7 +28,7 @@ const AddNew = (props) => {
         e.preventDefault();
 
         try {
-            const res = await axios.post('https://todo-app-blue-nu-33.vercel.app/api/v1/task', { name, category, status });
+            const res = await axios.post('https://schedule-my-task.vercel.app/api/v1/task', { name, category, status });
 
             console.log('Here is your res: ', res);
             console.log('Here is your res.data: ', res.data);
