@@ -112,7 +112,29 @@ header {
 .dashboard {
   width: 100%;
 }
+.editButton{
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-weight:bold;
+  font-family: monospace;
+  font-size:20px;
+padding: 0px 5px;
+  margin: 0%;
+  border-radius: 10px;
 
+}
+
+.editButton:hover{
+  background-color: silver;
+}
+
+.editTab{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
 
 .logout:hover,
 .addnewbutton:hover {

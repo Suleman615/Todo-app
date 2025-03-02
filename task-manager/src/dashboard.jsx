@@ -62,6 +62,16 @@ const DashBoard = (props) => {
 
     }
 
+    const deleteTask = async (id) => {
+        console.log(id)
+        try {
+            const res = await axios.delete(`https://schedule-my-task.vercel.app/api/v1/task/${id}`);
+            getTasks();
+        } catch (error) {
+            console.log("Error while deleting task: ", error);
+        }
+    }
+
     return (
         <>{enableDashBoard &&
             <div className="dashboard">
@@ -85,17 +95,21 @@ const DashBoard = (props) => {
                         </thead>
                         <tbody>
 
-                            {dummyData?.map((d) => (<tr>
-                                <td>{d.name}</td>
-                                <td>{d.category}</td>
-                                <td>
-                                    <select onChange={(e) => changeStatus(e, d._id)} className="selector" id="selectOptions" name="options" >
-                                        <option value="Completed" selected={(d.status == "Completed") ? true : false}>Completed</option>
-                                        <option value="In Progress" selected={(d.status == "In Progress") ? true : false}>In Progress</option>
-                                        <option value="Pending" selected={(d.status == "Pending") ? true : false}>Pending</option>
-                                    </select></td>
+                            {dummyData?.map((d, index) => (
+                                <tr key={index}>
+                                    <td>{d.name}</td>
+                                    <td>{d.category}</td>
+                                    <td className="editTab">
+                                        <select onChange={(e) => changeStatus(e, d._id)} className="selector" id="selectOptions" name="options" >
+                                            <option value="Completed" selected={(d.status == "Completed") ? true : false}>Completed</option>
+                                            <option value="In Progress" selected={(d.status == "In Progress") ? true : false}>In Progress</option>
+                                            <option value="Pending" selected={(d.status == "Pending") ? true : false}>Pending</option>
+                                        </select>
+                                        <button onClick={(d_id)=>deleteTask(d_id)} type="button" className="editButton">X</button>
+                                    </td>
 
-                            </tr>))}
+
+                                </tr>))}
                         </tbody>
                     </table>
                 </div>
